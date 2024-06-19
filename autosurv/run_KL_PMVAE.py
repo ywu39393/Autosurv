@@ -26,7 +26,7 @@ Change work dict as your own location
 
 import os
 
-os.chdir('/work/sghoshstat/ywu39393/AUTOSurv/autosurv')
+os.chdir('/cloud-home/U1039935/Autosurv/autosurv')
 
 
 """
@@ -36,15 +36,15 @@ Example listed here is for TCGA-BRCA data. If using TCGA-OV data, please adjust 
 input_n1 = 2699
 input_n2 = 516
 z_dim = [8, 16, 32, 64]
-# EPOCH_NUM = [800, 1200, 1600, 2000, 2400]
-EPOCH_NUM = [800, 1200, 1600]
-# NUM_CYCLES = [2, 4, 5, 10]
-NUM_CYCLES = [2, 4]
+EPOCH_NUM = [800, 1200, 1600, 2000, 2400]
+# EPOCH_NUM = [800, 1200, 1600]
+NUM_CYCLES = [2, 4, 5, 10]
+# NUM_CYCLES = [2, 4]
 CUTTING_RATIO = [0.3, 0.5, 0.7, 0.9]
-# Initial_Learning_Rate = [0.1, 0.05, 0.005, 0.001]
-Initial_Learning_Rate = [0.1, 0.01]
-#L2_Lambda = [0.1, 0.05, 0.005, 0.0005]
-L2_Lambda = [0.1]
+Initial_Learning_Rate = [0.1, 0.05, 0.005, 0.001]
+# Initial_Learning_Rate = [0.1, 0.01]
+L2_Lambda = [0.1, 0.05, 0.005, 0.0005]
+# L2_Lambda = [0.1]
 patient_id_train, x_train_gene, ytime_train, yevent_train, age_train, stage_i_train, stage_ii_train, race_white_train = load_data("processed_data_example/TCGA_BRCA/tune/minmax_normalized/data_train_gene_minmax_tune.csv", dtype)
 patient_id_valid, x_valid_gene, ytime_valid, yevent_valid, age_valid, stage_i_valid, stage_ii_valid, race_white_valid = load_data("processed_data_example/TCGA_BRCA/tune/minmax_normalized/data_valid_gene_minmax_tune.csv", dtype)
 pathway_mask_tune = load_pathway("processed_data_example/TCGA_BRCA/tune/minmax_normalized/pathway_mask.csv", dtype)
@@ -62,9 +62,10 @@ _, x_train_mirna_overall, _, _, _, _, _, _ = load_data("processed_data_example/T
 _, x_test_mirna_overall, _, _, _, _, _, _ = load_data("processed_data_example/TCGA_BRCA/train_test_split/minmax_normalized/data_test_mirna_minmax_overall.csv", dtype)
 
 """
-Find optim parameter
+find optim parameter
+"""
 
-""""
+
 opt_l2 = 0.
 opt_lr = 0.
 opt_dim = 0
